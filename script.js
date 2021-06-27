@@ -1,18 +1,15 @@
-function compute()
-{
-    p = document.getElementById("principal").value;
-    
-}
-var principal = document.getElementById("principal").value;
-var rate = document.getElementById("rate").value;
-var years = document.getElementById("years").value;
-var interest = principal * years * rate /100;
-var year = new Date().getFullYear()+parseInt(years);
-function updateRate() 
-{
-    var rateval = document.getElementById("rate").value;
-    document.getElementById("rate_val").innerText=rateval;
-}
-$(".slider").change(function() {
-    $("#query").text($("form").serialize());
-});
+function compute() {
+
+    let principal = document.getElementById("principal").value 
+    let interestRate = document.getElementById("rate").value
+    let years = document.getElementById("noYears").value
+    let interestEarned = principal * interestRate * years *.01 + Number(principal);// this is still wrong
+    let d = new Date();
+    let n = d.getFullYear();
+    let futureDate = Number(n) + Number(years); 
+
+    document.getElementById("answer1").innerHTML = "If you deposit $" + principal;
+    document.getElementById("answer2").innerHTML = "At a rate of " + interestRate + '%';
+    document.getElementById("answer3").innerHTML = "You'll recieve the amount of $" + interestEarned
+    document.getElementById("answer4").innerHTML = "In the year " + futureDate
+}    
